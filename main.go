@@ -32,7 +32,7 @@ func main() {
 	r.Use(gin.Recovery())
 	r.POST("/api/easemob.com/:org/:app/notify", func(c *gin.Context) {
 		var requestData JsonValue
-    	c.BindJSON(&requestData)
+    	c.ShouldBindJSON(&requestData)
 		c.JSON(http.StatusOK, gin.H{
 			"result": "suc",
 		})
